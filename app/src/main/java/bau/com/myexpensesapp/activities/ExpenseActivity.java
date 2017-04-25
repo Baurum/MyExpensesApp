@@ -1,7 +1,9 @@
-package bau.com.myexpensesapp;
+package bau.com.myexpensesapp.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import bau.com.myexpensesapp.R;
 
 public class ExpenseActivity extends AppCompatActivity {
 

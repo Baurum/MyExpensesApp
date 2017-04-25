@@ -1,10 +1,13 @@
-package bau.com.myexpensesapp;
+package bau.com.myexpensesapp.activities;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import bau.com.myexpensesapp.R;
+import bau.com.myexpensesapp.activities.AddExpenseActivity;
 
 /***************************************************************************************************
  * Splash Activity

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="bau.com.myexpensesapp.AddExpenseActivity">
+    tools:context="bau.com.myexpensesapp.activities.AddExpenseActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,7 +25,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <EditText android:id="@+id/et_user_count"
+        <EditText android:id="@+id/et_user_concept"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="Concept"
@@ -37,6 +37,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Add Expense"
+        android:onClick=""
 
         />
 
