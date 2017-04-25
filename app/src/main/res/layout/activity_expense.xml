@@ -4,12 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="bau.com.myexpensesapp.SplashActivity">
+    tools:context="bau.com.myexpensesapp.ExpenseActivity">
 
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/expense_splash"
-        />
 </android.support.constraint.ConstraintLayout>
