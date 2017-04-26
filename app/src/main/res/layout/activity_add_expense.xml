@@ -5,39 +5,75 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="bau.com.myexpensesapp.activities.AddExpenseActivity">
+    tools:context="bau.com.myexpensesapp.activities.AddExpenseActivity"
+    android:background="@drawable/piggysplash">
 
-    <LinearLayout
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content">-->
+
+        <!--<EditText android:id="@+id/et_user_amount"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_margin="10dp"-->
+            <!--android:inputType="numberDecimal"-->
+            <!--android:hint="Amount"-->
+            <!--/>-->
+    <!--</LinearLayout>-->
+
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content">-->
+
+        <!--<EditText android:id="@+id/et_user_concept"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:hint="Concept"-->
+            <!--android:layout_margin="10dp"-->
+            <!--/>-->
+    <!--</LinearLayout>-->
+
+
+    <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <EditText android:id="@+id/et_user_amount"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:inputType="numberDecimal"
-            android:hint="Amount"
-            />
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <EditText android:id="@+id/et_user_concept"
+        android:layout_height="wrap_content"
+        >
+        <TableRow>
+           <EditText android:id="@+id/et_user_concept"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="Concept"
+            android:textColorHint="@color/colorPrimary"
             android:layout_margin="10dp"
             />
-    </LinearLayout>
+
+        </TableRow>
+
+        <TableRow>
+
+            <EditText android:id="@+id/et_user_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:inputType="numberDecimal"
+                android:hint="Amount"
+                android:textColorHint="@color/colorPrimary"
+                />
+        </TableRow>
+    </TableLayout>
 
     <Button android:id="@+id/btn_add_expense"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Add Expense"
         android:onClick=""
+        android:background="@drawable/btn_circular"
+        android:layout_margin="50dp"
+        android:layout_gravity="center"
+
+
+
 
         />
 

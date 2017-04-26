@@ -288,7 +288,7 @@ public class ServerCommunication extends IntentService {
                 urlConnection.setRequestMethod(method);
                 // 7) Set headers
                 urlConnection.setRequestProperty(HEADER_CONTENT_TYPE, CONTENT_TYPE_JSON);
-                
+
                 // 8) Write data if the flag is set to true
                 if (writeData) {
                     OutputStreamWriter wr = new OutputStreamWriter(urlConnection.getOutputStream());
