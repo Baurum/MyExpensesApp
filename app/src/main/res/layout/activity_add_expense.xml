@@ -67,12 +67,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Add Expense"
-        android:onClick=""
+        android:onClick="createExpense"
         android:background="@drawable/btn_circular"
         android:layout_margin="50dp"
         android:layout_gravity="center"
-
-
 
 
         />

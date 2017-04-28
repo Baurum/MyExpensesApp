@@ -32,7 +32,7 @@ public class SplashActivity extends AppCompatActivity {
 
             @Override
             public void run() {
-                Intent i = new Intent(mContext, ExpenseActivity.class);
+                Intent i = new Intent(mContext, AddExpenseActivity.class);
                 startActivity(i);
                 finish();
             }

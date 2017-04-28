@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.EditText;
 
 import bau.com.myexpensesapp.R;
+import bau.com.myexpensesapp.network.ServerCommunication;
 
 public class AddExpenseActivity extends AppCompatActivity {
     public EditText etAmount;
@@ -15,6 +16,8 @@ public class AddExpenseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_expense);
+        initApp();
+
     }
 
     /**
@@ -27,6 +30,10 @@ public class AddExpenseActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Method to create a new Expensive
+     * @param view
+     */
     public void createExpense(View view){
         if (etConcept.getText().toString().equals("")){
             etConcept.setError("Write a concept");
@@ -34,5 +41,9 @@ public class AddExpenseActivity extends AppCompatActivity {
         if (etAmount.getText().toString().equals("")){
             etAmount.setError("Add an amount");
         }
+        ServerCommunication.startCreateExpense
+                (this, Double.parseDouble(etAmount.getText().toString()) ,
+                        etConcept.getText().toString());
+
     }
 }
