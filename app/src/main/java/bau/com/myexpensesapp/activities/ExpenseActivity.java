@@ -40,7 +40,7 @@ public class ExpenseActivity extends AppCompatActivity {
                         String result = "";
                         JSONObject currentExpense = (JSONObject) response.get(i);
                         String a = "";
-                        if (currentExpense.get(i).has("id")) = 
+                        if (currentExpense.get(i).has("id")) =
                             response.
                     }
 
