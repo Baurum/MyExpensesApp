@@ -104,6 +104,9 @@ public class AddExpenseActivity extends AppCompatActivity {
         } else if (etAmount.getText().toString().equals("")){
             etAmount.setError("Add an amount");
         } else {
+            ServerCommunication.startCreateExpense
+                    (this, Double.parseDouble(etAmount.getText().toString()),
+                            etConcept.getText().toString());
             goToExpensesScreen(view);
         }
     }
@@ -111,9 +114,6 @@ public class AddExpenseActivity extends AppCompatActivity {
     public void goToExpensesScreen(View view){
         Intent i = new Intent(this, ExpenseActivity.class);
         startActivity(i);
-        ServerCommunication.startCreateExpense
-                (this, Double.parseDouble(etAmount.getText().toString()),
-                        etConcept.getText().toString());
         finish();
     }
 

@@ -7,6 +7,7 @@ import android.content.IntentFilter;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -22,6 +23,7 @@ import bau.com.myexpensesapp.network.ServerCommunication;
 public class ExpenseActivity extends AppCompatActivity {
     private final String TAG = ExpenseActivity.class.getSimpleName();
     private TextView tvAllExpenses;
+    private EditText etId;
 
     private BroadcastReceiver getAllExpensesResultsHandler = new BroadcastReceiver() {
         @Override
@@ -36,14 +38,19 @@ public class ExpenseActivity extends AppCompatActivity {
             if(success) {
                 try {
                     JSONArray response = new JSONArray(serverResponse);
-                    for(int i = 0; i>=0; i++){
-                        String result = "";
-                        JSONObject currentExpense = (JSONObject) response.get(i);
-                        String a = "";
-                        if (currentExpense.get(i).has("id")) =
-                            response.
-                    }
+                    String result = "";
+                    for(int i = 0; i < response.length(); i++){
 
+                        JSONObject currentExpense = (JSONObject) response.get(i);
+                        if (currentExpense.has("id") &&
+                                currentExpense.has("amount") && currentExpense.has("concept")){
+                            result += currentExpense.getInt("id") + ": " +
+                                        currentExpense.getString("concept") + " " +
+                                                        currentExpense.getDouble("amount") + "€\n";
+
+                        }
+                    }
+                    tvAllExpenses.setText(result);
 
                 } catch(JSONException je){
                     je.printStackTrace();
@@ -101,6 +108,8 @@ public class ExpenseActivity extends AppCompatActivity {
 
     private void initApp(){
         tvAllExpenses = (TextView) findViewById(R.id.tv_user_expense);
+        tvAllExpenses.setMovementMethod(new ScrollingMovementMethod());
+        etId = (EditText) findViewById(R.id.et_user_id);
         getAllExpenses();
     }
 
@@ -112,5 +121,8 @@ public class ExpenseActivity extends AppCompatActivity {
     public void openAddExpenseScreen(View view){
         Intent i = new Intent (this, AddExpenseActivity.class);
         startActivity(i);
+    }
+    public void deleteExpense(View view){
+        ServerCommunication.startDeleteExpense(this , etId.getText().toString());
     }
 }

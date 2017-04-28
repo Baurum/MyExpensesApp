@@ -183,15 +183,15 @@ public class ServerCommunication extends IntentService {
      * @see IntentService
      */
 
-//    public static void startLogout(Context context, String authToken) {
-//        // Get the full URL
-//        String url = getURL(URL_BASE_API, RESOURCE_SESSION, authToken);
-//        // Set up the intent
-//        Intent intent = prepareIntent(context, ACTION_LOGOUT, PARAM_EMPTY,
-//                url, METHOD_DELETE, CONTENT_TYPE_JSON, authToken, false, RESULT_LOGOUT);
-//        // Fire up the service
-//        context.startService(intent);
-//    }
+    public static void startDeleteExpense(Context context, String id) {
+        // Get the full URL
+        String url = getURL(URL_BASE_API, RESOURCE_EXPENSE, id);
+        // Set up the intent
+        Intent intent = prepareIntent(context, ACTION_DELETE_EXPENSE, PARAM_EMPTY,
+                url, METHOD_DELETE, CONTENT_TYPE_JSON, false, RESULTS_ACTION_DELETE_EXPENSE);
+        // Fire up the service
+        context.startService(intent);
+    }
 
 
 
