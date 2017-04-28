@@ -47,7 +47,7 @@ public class ServerCommunication extends IntentService {
      **********************************************************************************************/
 
     // Expenses
-    private static final String RESULTS_ACTION_CREATE_EXPENSE = "createExpenseResults";
+    public static final String RESULTS_ACTION_CREATE_EXPENSE = "createExpenseResults";
     private static final String RESULTS_ACTION_INDEX_EXPENSE = "indexExpenseResults";
     private static final String RESULTS_ACTION_GET_EXPENSE = "getExpenseResults";
     private static final String RESULTS_ACTION_UPDATE_EXPENSE = "updateExpenseResults";
@@ -320,8 +320,7 @@ public class ServerCommunication extends IntentService {
                 if(true) Log.d(TAG, "IOException was raised.");
             }
 
-
-
+            broadcastResult(resultIntentAction, serverResponse, status, success);
         }
     }
 

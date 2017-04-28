@@ -1,7 +1,13 @@
 package bau.com.myexpensesapp.activities;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
@@ -9,8 +15,27 @@ import bau.com.myexpensesapp.R;
 import bau.com.myexpensesapp.network.ServerCommunication;
 
 public class AddExpenseActivity extends AppCompatActivity {
-    public EditText etAmount;
-    public EditText etConcept;
+    private final String TAG = AddExpenseActivity.class.getSimpleName();
+    private EditText etAmount;
+    private EditText etConcept;
+
+    /**
+     * Broadcast receiver for start create expense request
+     */
+
+    private BroadcastReceiver createExpenseResultsHandler = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+
+            String serverResponse = intent.getStringExtra(ServerCommunication.RESPONSE_SERVER);
+            int statusCode = intent.getIntExtra(ServerCommunication.RESPONSE_STATUS_CODE, -1);
+            boolean success =
+                    intent.getBooleanExtra(ServerCommunication.RESPONSE_STATUS_CODE, false);
+            Log.d(TAG, "Server response: " + serverResponse + "\n" + "Status code: " + statusCode
+            + "\n" + "Success: " + success);
+
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +46,26 @@ public class AddExpenseActivity extends AppCompatActivity {
     }
 
     /**
+     * Method activity lifecycle on start
+     *
+     */
+    @Override
+    protected void onStart(){
+        super.onStart();
+        registerReceivers();
+    }
+    /**
+     * Method activity lifecycle on stop
+     *
+     */
+    @Override
+    protected void onStop(){
+        super.onStop();
+        unregisterReceivers();
+    }
+
+
+    /**
      *  Method to init app
      */
 
@@ -29,6 +74,25 @@ public class AddExpenseActivity extends AppCompatActivity {
         etConcept = (EditText) findViewById(R.id.et_user_concept);
 
     }
+
+    /**
+     * registrer broadcast receivers
+     */
+
+    private void registerReceivers(){
+        IntentFilter getCreateExpenseResults =
+                new IntentFilter(ServerCommunication.RESULTS_ACTION_CREATE_EXPENSE);
+        LocalBroadcastManager.getInstance(this).
+                registerReceiver(createExpenseResultsHandler, getCreateExpenseResults);
+    }
+
+    /**
+     * Unregister broadcast receivers
+     */
+    private void unregisterReceivers(){
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(createExpenseResultsHandler);
+    }
+
 
     /**
      * Method to create a new Expensive
