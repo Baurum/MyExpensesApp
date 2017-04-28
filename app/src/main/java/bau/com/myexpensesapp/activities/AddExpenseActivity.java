@@ -44,6 +44,5 @@ public class AddExpenseActivity extends AppCompatActivity {
         ServerCommunication.startCreateExpense
                 (this, Double.parseDouble(etAmount.getText().toString()) ,
                         etConcept.getText().toString());
-
     }
 }
