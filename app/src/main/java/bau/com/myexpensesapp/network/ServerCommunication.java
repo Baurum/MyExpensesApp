@@ -213,43 +213,10 @@ public class ServerCommunication extends IntentService {
         context.startService(intent);
     }
 
-    /**
-     * Starts this service with the action 'Remove invitation'. It sends a PUT request
-     * and expects to set the invitation with the specified id to free.
-     *
-     * @param context The context that wants to call the service
-     * @param invitation The invitation object
-     * @param invitationId The invitation id
-     * @param authToken The authorization token
-     */
-//    public static void startUpdateInvitation(Context context, String invitation,
-//                                             String invitationId, String authToken){
-//        // Get the full URL
-//        String url = getURL(URL_BASE_API, RESOURCE_INVITATION, invitationId);
-//        // Set up the intent
-//        Intent intent = prepareIntent(context, ACTION_UPDATE_INVITATION, invitation,
-//                url, METHOD_PUT, CONTENT_TYPE_JSON, authToken, true, RESULT_UPDATE_INVITATION);
-//        // Fire up the service
-//        context.startService(intent);
-//    }
 
 
 
-    /**
-     * Starts this service with the action 'Get user'.
-     *
-     * @param context The context that wants to call the service
-     * @param authToken The authorization token
-     */
-//    public static void startGetUser(Context context, String authToken){
-//        // Get the full URL
-//        String url = getURL(URL_BASE_API, RESOURCE_USER, authToken);
-//        // Set up the intent
-//        Intent intent = prepareIntent(context, ACTION_GET_USER, PARAM_EMPTY,
-//                url, METHOD_GET, CONTENT_TYPE_JSON, authToken, false, RESULT_GET_USER);
-//        // Fire up the service
-//        context.startService(intent);
-//    }
+
 
 
 

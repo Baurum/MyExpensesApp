@@ -24,6 +24,9 @@ public class ExpenseActivity extends AppCompatActivity {
     private final String TAG = ExpenseActivity.class.getSimpleName();
     private TextView tvAllExpenses;
     private EditText etId;
+    /**
+     * Method to receiver all expenses
+     */
 
     private BroadcastReceiver getAllExpensesResultsHandler = new BroadcastReceiver() {
         @Override
@@ -105,6 +108,9 @@ public class ExpenseActivity extends AppCompatActivity {
         LocalBroadcastManager.getInstance(this).unregisterReceiver(getAllExpensesResultsHandler);
     }
 
+    /**
+     * Method to init the app
+     */
 
     private void initApp(){
         tvAllExpenses = (TextView) findViewById(R.id.tv_user_expense);
@@ -113,15 +119,29 @@ public class ExpenseActivity extends AppCompatActivity {
         getAllExpenses();
     }
 
+    /**
+     * Method to get all expenses
+     */
+
     private void getAllExpenses(){
         ServerCommunication.startGetAllExpenses(this);
 
     }
 
+    /**
+     * Method to open the add expense activity
+     * @param view
+     */
+
     public void openAddExpenseScreen(View view){
         Intent i = new Intent (this, AddExpenseActivity.class);
         startActivity(i);
     }
+
+    /**
+     * Method to delete an expense by the id
+     * @param view
+     */
     public void deleteExpense(View view){
         ServerCommunication.startDeleteExpense(this , etId.getText().toString());
     }

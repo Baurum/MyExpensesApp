@@ -6,11 +6,11 @@
     android:layout_height="match_parent"
     tools:context="bau.com.myexpensesapp.activities.SplashActivity">
 
-
     <ImageView
         android:layout_width="395dp"
         android:layout_height="587dp"
         android:src="@drawable/piggysplash"
         tools:layout_editor_absoluteY="8dp"
         tools:layout_editor_absoluteX="8dp" />
+
 </android.support.constraint.ConstraintLayout>
