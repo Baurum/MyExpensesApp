@@ -24,7 +24,7 @@
             >
 
             <TextView
-            android:id="@+id/tv_user_expense_1"
+            android:id="@+id/tv_user_expense"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text=""
@@ -48,6 +48,7 @@
         android:layout_gravity="right"
         android:src="@drawable/piggysplash"
         android:layout_margin="15dp"
+        android:onClick="openAddExpenseScreen"
 
         />
     </LinearLayout>

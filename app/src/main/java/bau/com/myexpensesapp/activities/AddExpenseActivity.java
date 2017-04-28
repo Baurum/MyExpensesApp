@@ -30,7 +30,7 @@ public class AddExpenseActivity extends AppCompatActivity {
             String serverResponse = intent.getStringExtra(ServerCommunication.RESPONSE_SERVER);
             int statusCode = intent.getIntExtra(ServerCommunication.RESPONSE_STATUS_CODE, -1);
             boolean success =
-                    intent.getBooleanExtra(ServerCommunication.RESPONSE_STATUS_CODE, false);
+                    intent.getBooleanExtra(ServerCommunication.RESPONSE_SUCCESS, false);
             Log.d(TAG, "Server response: " + serverResponse + "\n" + "Status code: " + statusCode
             + "\n" + "Success: " + success);
 
@@ -101,12 +101,16 @@ public class AddExpenseActivity extends AppCompatActivity {
     public void createExpense(View view){
         if (etConcept.getText().toString().equals("")){
             etConcept.setError("Write a concept");
-        }
-        if (etAmount.getText().toString().equals("")){
+        } else if (etAmount.getText().toString().equals("")){
             etAmount.setError("Add an amount");
+        } else {
+            Intent i = new Intent(this, ExpenseActivity.class);
+            startActivity(i);
+            ServerCommunication.startCreateExpense
+                    (this, Double.parseDouble(etAmount.getText().toString()),
+                            etConcept.getText().toString());
+            finish();
         }
-        ServerCommunication.startCreateExpense
-                (this, Double.parseDouble(etAmount.getText().toString()) ,
-                        etConcept.getText().toString());
     }
+
 }

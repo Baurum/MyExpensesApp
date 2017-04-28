@@ -48,7 +48,7 @@ public class ServerCommunication extends IntentService {
 
     // Expenses
     public static final String RESULTS_ACTION_CREATE_EXPENSE = "createExpenseResults";
-    private static final String RESULTS_ACTION_INDEX_EXPENSE = "indexExpenseResults";
+    public static final String RESULTS_ACTION_INDEX_EXPENSE = "indexExpenseResults";
     private static final String RESULTS_ACTION_GET_EXPENSE = "getExpenseResults";
     private static final String RESULTS_ACTION_UPDATE_EXPENSE = "updateExpenseResults";
     private static final String RESULTS_ACTION_DELETE_EXPENSE = "deleteExpenseResults";
@@ -75,8 +75,8 @@ public class ServerCommunication extends IntentService {
     private static final String EXTRA_PARAM_ID = "id";
 
     // Expense extra params
-    private static final String EXTRA_PARAM_EXPENSE_AMOUNT = "amount";
-    private static final String EXTRA_PARAM_EXPENSE_CONCEPT = "concept";
+    public static final String EXTRA_PARAM_EXPENSE_AMOUNT = "amount";
+    public static final String EXTRA_PARAM_EXPENSE_CONCEPT = "concept";
 
     /***********************************************************************************************
      * Server Response Intent Extras
@@ -117,8 +117,8 @@ public class ServerCommunication extends IntentService {
      * URLs
      **********************************************************************************************/
 
-    private static final String URL_BASE_API = "http://Ubuntu-rails-baurumtec276074.codeanyapp.com:3000/";
-    private static final String URL_EXPENSES_RESOURCE = "expenses/";
+    public static final String URL_BASE_API = "http://Ubuntu-rails-baurumtec276074.codeanyapp.com:3000/";
+    public static final String URL_EXPENSES_RESOURCE = "expenses/";
 
     /***********************************************************************************************
      * Constants
@@ -197,21 +197,21 @@ public class ServerCommunication extends IntentService {
 
 
     /**
-     * Starts this service with the action 'Get user coupons'. It sends a GET request
-     * and expects to retrieve a list of coupons.
+     * Starts this service with the action 'Get user expenses'. It sends a GET request
+     * and expects to retrieve a list of expenses.
      *
      * @param context The context that wants to call the service
-     * @param authToken The authorization token
+     *
      */
-//    public static void startGetUserCoupons(Context context, String authToken){
-//        // Get the full URL
-//        String url = getURL(URL_BASE_API, RESOURCE_COUPON, PARAM_EMPTY);
-//        // Set up the intent
-//        Intent intent = prepareIntent(context, ACTION_GET_USER_COUPONS, PARAM_EMPTY,
-//                url, METHOD_GET, CONTENT_TYPE_JSON, authToken, false, RESULT_GET_USER_COUPONS);
-//        // Fire up the service
-//        context.startService(intent);
-//    }
+    public static void startGetAllExpenses(Context context){
+        // Get the full URL
+        String url = getURL(URL_BASE_API, RESOURCE_EXPENSE, PARAM_EMPTY);
+        // Set up the intent
+        Intent intent = prepareIntent(context, ACTION_INDEX_EXPENSE, PARAM_EMPTY,
+                url, METHOD_GET, CONTENT_TYPE_JSON, false, RESULTS_ACTION_INDEX_EXPENSE);
+        // Fire up the service
+        context.startService(intent);
+    }
 
     /**
      * Starts this service with the action 'Remove invitation'. It sends a PUT request
